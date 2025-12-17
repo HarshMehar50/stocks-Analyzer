@@ -30,7 +30,7 @@ const UserDropdown = () => {
                             {user.name[0]}
                         </AvatarFallback>
                     </Avatar>
-                    <div className={"hidden md-flex flex-col item-start"}>
+                    <div className={"hidden md:flex flex-col items-start"}>
                         <span className={"text-base font-medium text-gray-400"}>
                             {user.name}
                         </span>
