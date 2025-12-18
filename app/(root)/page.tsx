@@ -34,6 +34,7 @@ const Home = () => {
             <section className={"grid w-full gap-8 home-section"}>
                 <div className={"h-full col-span-1 xl:col-span-1"}>
                     <TradingViewWidget
+                        title={"Top Stories"}
                         scriptUrl={`${scriptUrl}timeline.js`}
                         config={TOP_STORIES_WIDGET_CONFIG}
                         className={"custom-chart"}
@@ -42,6 +43,7 @@ const Home = () => {
                 </div>
                 <div className={"h-full col-span-1 xl:col-span-2"}>
                     <TradingViewWidget
+                        title={"Market Data"}
                         scriptUrl={`${scriptUrl}market-quotes.js`}
                         config={MARKET_DATA_WIDGET_CONFIG}
                         className={"custom-chart"}
