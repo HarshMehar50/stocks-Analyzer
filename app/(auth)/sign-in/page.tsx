@@ -5,6 +5,9 @@ import InputFeild from "@/components/form/InputFeild";
 import {Button} from "@/components/ui/button";
 import FooterLink from "@/components/form/FooterLink";
 import {useRouter} from "next/navigation";
+import {signInWithEmail} from "@/lib/actions/authactions";
+import {toast} from "sonner";
+import {redirect} from "next/navigation";
 
 
 const SignIn = () => {
@@ -20,11 +23,16 @@ const SignIn = () => {
         } ,
         mode : "onBlur"
     }, );
+
     const onSubmit  = async (data : SignInFormData) => {
         try {
+            const result = await signInWithEmail(data);
+            if(result?.success)
+                router.replace("/");
             console.log(data);
         }catch (e) {
             console.log(e);
+            toast.error("Failed to sign in." ,{ description : e instanceof Error? e.message : "failed to signin"});
         }
     }
 
@@ -56,7 +64,7 @@ const SignIn = () => {
                     {isSubmitting ? "Signing in" : "Submit"}
                 </Button>
 
-                <FooterLink text={"New User "} linkText={"Sign up"} href={"/sigup-in"} />
+                <FooterLink text={"New User "} linkText={"Sign up"} href={"/sign-up"} />
             </form>
         </>
     )
