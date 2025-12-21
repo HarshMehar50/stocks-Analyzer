@@ -28,4 +28,5 @@ if(!cached){
         throw e;
     }
     console.log(`Connected to DataBase ${process.env.NODE_ENV} - ${MONGODB_URI}`);
+    return cached.conn;
  }

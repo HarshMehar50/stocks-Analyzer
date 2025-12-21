@@ -7,6 +7,9 @@ import {SelectFeild} from "@/components/form/SelectFeild";
 import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
 import {CountrySelectFeild} from "@/components/form/CountrySelectFeild";
 import FooterLink from "@/components/form/FooterLink";
+import {signUpWithEmail} from "@/lib/actions/authactions";
+import {toast} from "sonner";
+import {useRouter} from "next/navigation";
 //import CountrySelectFeild from "@/components/form/CountrySelectFeild";
 
 const SignUp = () => {
@@ -27,11 +30,16 @@ const SignUp = () => {
         } ,
         mode : "onBlur"
     }, );
+    const router = useRouter();
     const onSubmit  = async (data : SignUpFormData) => {
         try {
+            const result = await signUpWithEmail(data);
+            if(result.success)
+                router.push("/");
             console.log(data);
         }catch (e) {
             console.log(e);
+            toast.error("Failed to sign up." ,{ description : e instanceof Error? e.message : "failed to signup"});
         }
     }
     return (
