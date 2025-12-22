@@ -13,7 +13,7 @@ import {useRouter} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {Avatar , AvatarImage , AvatarFallback} from "@/components/ui/avatar";
 import {LogOut} from "lucide-react";
-import {signOut} from "@/lib/actions/authactions";
+import {signOut} from "@/lib/actions/auth.actions";
 
 const UserDropdown = ({user} : {user : User}) => {
     const router = useRouter();
