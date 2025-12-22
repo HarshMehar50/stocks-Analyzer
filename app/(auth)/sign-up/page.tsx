@@ -7,7 +7,7 @@ import {SelectFeild} from "@/components/form/SelectFeild";
 import {INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS} from "@/lib/constants";
 import {CountrySelectFeild} from "@/components/form/CountrySelectFeild";
 import FooterLink from "@/components/form/FooterLink";
-import {signUpWithEmail} from "@/lib/actions/authactions";
+import {signUpWithEmail} from "@/lib/actions/auth.actions";
 import {toast} from "sonner";
 import {useRouter} from "next/navigation";
 //import CountrySelectFeild from "@/components/form/CountrySelectFeild";
