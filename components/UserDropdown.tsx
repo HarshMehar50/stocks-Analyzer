@@ -14,8 +14,11 @@ import {Button} from "@/components/ui/button";
 import {Avatar , AvatarImage , AvatarFallback} from "@/components/ui/avatar";
 import {LogOut} from "lucide-react";
 import {signOut} from "@/lib/actions/auth.actions";
+import {searchStocks} from "@/lib/actions/finnhub.actions";
 
-const UserDropdown = ({user} : {user : User}) => {
+
+const initialStocks = await searchStocks();
+const UserDropdown = ({user} : {user : User} ) => {
     const router = useRouter();
     const handleSignOut = async ()=>{
         await signOut();
@@ -63,7 +66,7 @@ const UserDropdown = ({user} : {user : User}) => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className={"hidden sm:block bg-gray-600"} />
                 <nav className={"sm:hidden"}>
-                    <Navitems />
+                    <Navitems initialStocks={initialStocks}/>
                 </nav>
             </DropdownMenuContent>
         </DropdownMenu>
