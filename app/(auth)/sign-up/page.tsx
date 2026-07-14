@@ -85,7 +85,7 @@ const SignUp = () => {
                 <SelectFeild
                     name = "investmentGoals"
                     label = "Investment Goals"
-                    palceholder = "Select your Investments Goals"
+                    placeholder = "Select your Investments Goals"
                     options = {INVESTMENT_GOALS}
                     control = {control}
                     error = {errors.investmentGoals}
@@ -95,7 +95,7 @@ const SignUp = () => {
                 <SelectFeild
                     name = "riskTolerance"
                     label = "Risk Tolerance"
-                    palceholder = "Select your Risk Level"
+                    placeholder = "Select your Risk Level"
                     options = {RISK_TOLERANCE_OPTIONS}
                     control = {control}
                     error = {errors.riskTolerance}
@@ -105,7 +105,7 @@ const SignUp = () => {
                 <SelectFeild
                     name = "preferredIndustry"
                     label = "Preferred Industry"
-                    palceholder = "Select your preferred industries"
+                    placeholder = "Select your preferred industries"
                     options = {PREFERRED_INDUSTRIES}
                     control = {control}
                     error = {errors.preferredIndustry}

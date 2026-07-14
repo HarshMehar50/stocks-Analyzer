@@ -217,7 +217,7 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
 
         const maxArticles = 6;
 
-        // If we have symbols, try to fetch company news per symbol and round-robin select
+
         if (cleanSymbols.length > 0) {
             const perSymbolArticles: Record<string, RawNewsArticle[]> = {};
 
@@ -235,7 +235,7 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
             );
 
             const collected: MarketNewsArticle[] = [];
-            // Round-robin up to 6 picks
+
             for (let round = 0; round < maxArticles; round++) {
                 for (let i = 0; i < cleanSymbols.length; i++) {
                     const sym = cleanSymbols[i];
@@ -254,10 +254,10 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
                 collected.sort((a, b) => (b.datetime || 0) - (a.datetime || 0));
                 return collected.slice(0, maxArticles);
             }
-            // If none collected, fall through to general news
+
         }
 
-        // General market news fallback or when no symbols provided
+
         const generalUrl = `${FINNHUB_BASE_URL}/news?category=general&token=${token}`;
         const general = await fetchJSON<RawNewsArticle[]>(generalUrl, 300);
 
@@ -324,8 +324,8 @@ export const searchStocks = cache(async (query?: string): Promise<StockWithWatch
                     };
                     // We don't include exchange in FinnhubSearchResult type, so carry via mapping later using profile
                     // To keep pipeline simple, attach exchange via closure map stage
-                    // We'll reconstruct exchange when mapping to final type
-                    (r as any).__exchange = exchange; // internal only
+
+                    (r as any).__exchange = exchange;
                     return r;
                 })
                 .filter((x): x is FinnhubSearchResult => Boolean(x));
