@@ -19,6 +19,7 @@ const Home = () => {
                         scriptUrl={`${scriptUrl}market-overview.js`}
                         config={MARKET_OVERVIEW_WIDGET_CONFIG}
                         className={"custom-chart"}
+                        height={600}
                     />
                 </div>
                 <div className={"md-col-span xl:col-span-2"}>
